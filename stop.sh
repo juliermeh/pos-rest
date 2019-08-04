@@ -8,3 +8,6 @@ docker rmi -f ricardojob/app
 docker stop bd
 docker rm bd
 docker rmi -f ricardojob/bd
+
+#docker-compose
+#docker-compose down

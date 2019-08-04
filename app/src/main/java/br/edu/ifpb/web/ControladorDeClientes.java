@@ -1,11 +1,10 @@
 package br.edu.ifpb.web;
 
-import br.edu.ifpb.domain.Cliente;
-import br.edu.ifpb.domain.Clientes;
-import br.edu.ifpb.infra.ClientesEmJDBC;
-import br.edu.ifpb.infra.ClientesEmMemoria;
+import br.edu.ifpb.domain.cliente.Cliente;
+import br.edu.ifpb.domain.cliente.ServiceClientes;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ControladorDeClientes",urlPatterns = {"/clientes"})
 public class ControladorDeClientes extends HttpServlet {
 
-//    private Clientes service = new ClientesEmMemoria();
-    private Clientes service = new ClientesEmJDBC();
+    @Inject
+    private ServiceClientes service;
 
     // Listar todos os clientes
     @Override
